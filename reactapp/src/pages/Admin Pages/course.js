@@ -49,10 +49,10 @@ const Course = () => {
 				  <Menus/>
 			  </Col>
 			  <Col md={8}>
-			  <Route path="/admincourse/add-course" component={AddCourses} exact/>
-			  <Route path="/admincourse/view-course" component={Allcourses} exact/>
-			  <Route path="/admincourse/view-course/update/:id" component={Updatecourse} exact/>
-			  <Route path="/admincourse/view-course/delete/:id" component={DeleteCourse} exact/>
+			  <Route path="/admincourse/add-class" component={AddCourses} exact/>
+			  <Route path="/admincourse/view-class" component={Allcourses} exact/>
+			  <Route path="/admincourse/view-class/update/:id" component={Updatecourse} exact/>
+			  <Route path="/admincourse/view-class/delete/:id" component={DeleteCourse} exact/>
 
 			  </Col>
 		  </Row>

@@ -15,11 +15,10 @@ export default class CourseUnenroll extends Component{
           currentEnrolledCourse: {
             regid: null,
             useremail: "",
-            coursedesc: "",
-            title: "",
+            classno: "",
             instituteName: "",
             academicYear: "",
-            hscmarks: null
+            scoredmarks: null
           },
           unenrolled: false
         };
@@ -71,10 +70,10 @@ export default class CourseUnenroll extends Component{
                                 </strong>
                             </StyledTitle>
                             <StyledTitle color={colors.dark2} size={20}>
-                               <TextLink to="/courseenrolled">View Applied Courses</TextLink>
+                               <TextLink to="/courseenrolled">View Applied Class</TextLink>
                             </StyledTitle>
                             <StyledTitle color={colors.dark2} size={20}>
-                              Apply another Course ? <TextLink to="/usercourse">Click Here</TextLink>
+                              Apply another Class ? <TextLink to="/usercourse">Click Here</TextLink>
                           </StyledTitle>
                         </StyledFormArea>
                     </EnrolledContainer>
@@ -85,7 +84,7 @@ export default class CourseUnenroll extends Component{
                                 Do you wish to delete application for
                                 <br></br>
                                 <strong>
-                                {currentEnrolledCourse.title}
+                                {currentEnrolledCourse.classno}
                                 </strong> ?
                             </StyledTitle>
                             <button type="submit" onClick={this.unenrollCourse} className="btn btn-danger">

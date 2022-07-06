@@ -64,7 +64,7 @@ export default class InstituteInfo extends Component{
                  <StyledTitle color={colors.light1} size={25}>
                         <strong>{currentInstitute.institueName} - {currentInstitute.institutePlace}</strong>
                     </StyledTitle>
-                 <img src={process.env.PUBLIC_URL + '/' +currentInstitute.imgLocation}  className="rounded mx-auto d-block" width="500" height="400"/>
+                 <img src={process.env.PUBLIC_URL + '/' +currentInstitute.imgLocation}  className="rounded mx-auto d-block" alt="College" width={500} height={300}/>
                  <br></br>
                     <p className="text-justify text-white h4">{currentInstitute.instituteDescription}</p>
                 <br></br>

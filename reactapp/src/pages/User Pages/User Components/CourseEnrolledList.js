@@ -55,8 +55,7 @@ export default class EnrolledCoursesList extends Component{
 
                            <thead className="text-center">
                                <tr>
-                                   <th> Course Title</th>
-                                   <th>Course Description</th>
+                                   <th> Class Number</th>
                                    <th> Institute Name</th>
                                    <th> Academic Year</th>
                                    <th> Actions</th>
@@ -67,8 +66,7 @@ export default class EnrolledCoursesList extends Component{
                                    this.state.enrolledcourses.map(
                                        enrolledcourse => 
                                        <tr key = {enrolledcourse.regid}>
-                                            <td className="align-middle text-center"> { enrolledcourse.title} </td>   
-                                            <td> {enrolledcourse.coursedesc}</td>
+                                            <td className="align-middle text-center"> { enrolledcourse.classno} </td>   
                                             <td className="align-middle text-center"> {enrolledcourse.instituteName}</td>
                                             <td className="align-middle text-center"> {enrolledcourse.academicYear}</td>
                                             <td className="align-middle text-center">

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 const Allcourses=()=> {
   const getAllCoursesFromServer=()=>{
-    axios.get(`${base_url}/courses/getAll`).then(
+    axios.get(`${base_url}/classes/getAll`).then(
       (response)=>{
         console.log(response.data);
         toast.success("courses has been loaded");
@@ -27,8 +27,8 @@ const Allcourses=()=> {
         //  {title:"java Course",description:"this is java"},
         //  {title:"Django course",description:"this is Django"},
         //  {title:"python course",description:"this is python"}
-        const removeCourseById=(courseid)=>{
-          setCourses(courses.filter((c)=>c.courseid!=courseid));
+        const removeCourseById=(classid)=>{
+          setCourses(courses.filter((c)=>c.classid!==classid));
         }
      
   return (

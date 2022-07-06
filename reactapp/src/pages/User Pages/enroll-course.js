@@ -17,7 +17,7 @@ export default class CourseEnroll extends Component{
         this.state = {
           currentCourse: {
             courseid: null,
-            title: "",
+            classno: "",
             course_desc: "",
             instituteid: null,
             institute_name: ""
@@ -56,7 +56,7 @@ export default class CourseEnroll extends Component{
         let file = e.target.files[0];
         const formData = new FormData();
         formData.append('file', file);
-        const API_URL = "http://localhost:8080/courses/uploadMarks"
+        const API_URL = "http://localhost:8080/classes/uploadMarks"
         axios.post(API_URL,formData)
         .then(response => {
           console.log(response.data)
@@ -74,10 +74,9 @@ export default class CourseEnroll extends Component{
         var username = name
         var data = {
             academicYear: this.state.currentCourse.academicYear,
-            coursedesc: this.state.currentCourse.course_desc,
-            hscmarks: this.state.HSCMarks,
+            scoredmarks: this.state.HSCMarks,
             instituteName: this.state.currentCourse.institute_name,
-            title: this.state.currentCourse.title,
+            classno: this.state.currentCourse.classno,
             useremail: email,
             username: username,
             eligibleMarks: this.state.currentCourse.elgibleMarks,
@@ -115,14 +114,14 @@ export default class CourseEnroll extends Component{
                       <StyledFormArea>
                           <StyledTitle color={colors.red} size={25}>
                               <strong>
-                              You have already applied to this Course!
+                              You have already applied to this Class!
                               </strong>
                           </StyledTitle>
                           <StyledTitle color={colors.dark2} size={20}>
-                              <TextLink to="/courseenrolled">View Applied Courses</TextLink>
+                              <TextLink to="/courseenrolled">View Applied Classes</TextLink>
                           </StyledTitle>
                           <StyledTitle color={colors.dark2} size={20}>
-                              Apply new Course ? <TextLink to="/usercourse">Click Here</TextLink>
+                              Apply for a new Class ? <TextLink to="/usercourse">Click Here</TextLink>
                           </StyledTitle>
                       </StyledFormArea>
                   </div>
@@ -133,14 +132,14 @@ export default class CourseEnroll extends Component{
                       <StyledFormArea>
                           <StyledTitle color={colors.green} size={25}>
                           <strong>
-                              You have applied for the Course Successfully!
+                              You have applied for the Class Successfully!
                           </strong>
                           </StyledTitle>
                           <StyledTitle color={colors.dark2} size={20}>
-                            <TextLink to="/courseenrolled">View Applied Courses</TextLink>
+                            <TextLink to="/courseenrolled">View Applied Classes</TextLink>
                           </StyledTitle>
                           <StyledTitle color={colors.dark2} size={20}>
-                              Apply another Course ? <TextLink to="/usercourse">Click Here</TextLink>
+                              Apply for another Class ? <TextLink to="/usercourse">Click Here</TextLink>
                           </StyledTitle>
                       </StyledFormArea>
                   </div>
@@ -149,37 +148,21 @@ export default class CourseEnroll extends Component{
               ) : (
                 <div className="w-100 was-validated justify-content-center">
                 <StyledTitle  size={20} color={colors.light1}>
-                  <strong>Course Application Form</strong>
+                  <strong>Class Application Form</strong>
                 </StyledTitle>
                 <div class="p-3 mb-2 bg-light text-dark">
                     <label htmlFor="title" className="text-success form-label">
-                      <strong>Title: </strong>
+                      <strong>Class Number: </strong>
                     </label>
                     <input
                       type="text"
                       readonly class="form-control-plaintext"
-                      id="title"
+                      id="classno"
                       required
-                      value={currentCourse.title}
-                      name="title"
+                      value={currentCourse.classno}
+                      name="classno"
                     />
               </div>
-
-              <div class="p-3 mb-2 bg-light text-dark">
-                <label htmlFor="description" className="text-success form-label">
-                  <strong>Description:</strong>
-                </label>
-                  <textarea
-                    className="form-control-plaintext"
-                    readOnly
-                    value={currentCourse.course_desc}
-                    required
-                    id="description"
-                    name="description"
-                  >
-
-                  </textarea>
-            </div>
 
             <div class="p-3 mb-2 bg-light text-dark">
                 <label htmlFor="institute"  className="text-success form-label">
@@ -209,19 +192,6 @@ export default class CourseEnroll extends Component{
                   />
             </div>
 
-            <div class="p-3 mb-2 bg-light text-dark">
-                <label htmlFor="courseDuration"  className="text-success form-label">
-                  <strong>Course Duration:</strong>
-                </label>
-                  <input
-                    type="text"
-                    readonly class="form-control-plaintext"
-                    id="courseDuration"
-                    required
-                    value={currentCourse.courseDuration}
-                    name="courseDuration"
-                  />
-            </div>
 
             <div class="p-3 mb-2 bg-light text-dark">
                 <label htmlFor="fname" className="text-success form-label">
@@ -282,7 +252,7 @@ export default class CourseEnroll extends Component{
 
             <div class="p-3 mb-2 bg-light text-dark">
                 <label htmlFor="hscmarks" className="text-success form-label">
-                  <strong>HSC/12th Percentage:</strong>
+                  <strong>Scored Percentage of Last Class:</strong>
                 </label>
                   <input
                     required
@@ -300,7 +270,7 @@ export default class CourseEnroll extends Component{
 
             <div class="p-3 mb-2 bg-light text-dark">
                 <label htmlFor="marksfile" className="text-success form-label">
-                  <strong>HSC/12th Marksheet:</strong>
+                  <strong>Gradesheet/Marksheet of Last Class:</strong>
                 </label>
                   <input
                     required

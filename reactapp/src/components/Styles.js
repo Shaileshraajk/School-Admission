@@ -79,6 +79,16 @@ export const Avatar = styled.div`
     margin: auto;
 `;
 
+export const PreLogo = styled.div`
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    background-image: url(${props => props.image});
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+`;
+
 //Buttons
 export const StyledButton = styled(Link)`
     padding: 10px;
@@ -204,6 +214,15 @@ export const StyledIcons = styled.p`
     top: 40px;
     ${(props) => props.right && `right: 15px; `};
     ${(props) => !props.right && `left: 20px; `}
+`;
+
+export const CloseIcon = styled.p`
+    color: ${colors.light1};
+    position: absolute;
+    font-size: 10px;
+    top: 10px;
+    ${(props) => props.right && `right: 15px; `};
+    ${(props) => !props.right && `left: 860px; `}
 `;
 
 //Copyright

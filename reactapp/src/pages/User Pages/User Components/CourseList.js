@@ -81,7 +81,7 @@ export default class CoursesList extends Component{
           currentIndex: -1
         });
     
-        CoursesDataService.findByTitle(this.state.searchTitle)
+        CoursesDataService.findByClassNo(this.state.searchTitle)
           .then(response => {
             this.setState({
                 courses: response.data
@@ -107,7 +107,7 @@ export default class CoursesList extends Component{
                   <input
                       type="text"
                       className="form-control"
-                      placeholder="Search by title"
+                      placeholder="Search by Class Number (Class X)"
                       value={searchTitle}
                       onChange={this.onChangeSearchTitle}
                   />
@@ -136,7 +136,7 @@ export default class CoursesList extends Component{
                                   onClick={() => this.setActiveCourse(course, index)}
                                   key={index}
                               >
-                                  {course.title} - {course.institute_name}
+                                  {course.classno} - {course.institute_name}
                               </li>
                           ))}
                   </ul>
@@ -144,30 +144,18 @@ export default class CoursesList extends Component{
               <div className="col-md-6">
                   {currentCourse ? (
                       <div>
-                          <h4 class="text-warning"><strong>Course Details</strong></h4>
+                          <h4 class="text-warning"><strong>Class Details</strong></h4>
                           <div class="p-3 mb-2 bg-success text-white">
                               <label>
-                                  <strong>Title:</strong>
+                                  <strong>Class Number:</strong>
                               </label>{" "}
-                              {currentCourse.title}
-                          </div>
-                          <div class="p-3 mb-2 bg-light text-dark">
-                              <label>
-                                  <strong>Description:</strong>
-                              </label>{" "}
-                              {currentCourse.course_desc}
+                              {currentCourse.classno}
                           </div>
                           <div class="p-3 mb-2 bg-warning text-dark">
                               <label>
                                   <strong>Offered by:</strong>
                               </label>{" "}
                               {currentCourse.institute_name}
-                          </div>
-                          <div class="p-3 mb-2 bg-primary text-white">
-                              <label>
-                                  <strong>Course Duration:</strong>
-                              </label>{" "}
-                              {currentCourse.courseDuration}
                           </div>
                           <div class="p-3 mb-2 bg-danger text-white">
                               <label>
@@ -181,7 +169,7 @@ export default class CoursesList extends Component{
                               </label>{" "}
                               Minimum of {currentCourse.elgibleMarks}% marks from a recognized Board.
                           </div>
-                             <StyledButton to={"/enroll/" + currentCourse.courseid}>Apply</StyledButton>
+                             <StyledButton to={"/enroll/" + currentCourse.classid}>Apply</StyledButton>
                       </div>
                   ):(
                       <div class="p-3 mb-2 bg-warning text-dark">

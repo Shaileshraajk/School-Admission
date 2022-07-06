@@ -6,9 +6,9 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
   return (
     <ListGroup className='my-4'>
      
-        <Link className='list-group-item list-group-item-action' tag="a" to="/admincourse/add-course" action>AddCourse</Link>
+        <Link className='list-group-item list-group-item-action' tag="a" to="/admincourse/add-class" action>Add Class</Link>
         
-        <Link className='list-group-item list-group-item-action' tag="a" to="/admincourse/view-course" action>ViewCourse</Link>
+        <Link className='list-group-item list-group-item-action' tag="a" to="/admincourse/view-class" action>View Classes</Link>
       
     </ListGroup>
   );

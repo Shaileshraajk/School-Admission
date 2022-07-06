@@ -14,7 +14,7 @@ const AddCourses=()=> {
     e.preventDefault();
   }
   const postDatatoServer=(data)=>{
-    axios.post(`${base_url}/courses/add`,data).then(
+    axios.post(`${base_url}/classes/add`,data).then(
       (response)=>{
           console.log(response);
           if(response.status===200){
@@ -45,10 +45,10 @@ const AddCourses=()=> {
           }}/>
           </FormGroup> */}
           <FormGroup>
-          <Label for="title" ><strong>Course Title</strong></Label>
-          <Input type="text" name="title" id="title" placeholder="Enter course title here" required
+          <Label for="title" ><strong>Class Number</strong></Label>
+          <Input type="text" name="title" id="title" placeholder="Enter class number here" required
           onChange={(e)=>{
-            setCourses({...courses,title:e.target.value})
+            setCourses({...courses,classno:e.target.value})
           }}/>
           </FormGroup>
           <FormGroup>
@@ -58,25 +58,12 @@ const AddCourses=()=> {
             setCourses({...courses,instituteid:e.target.value})
           }}/>
           </FormGroup>
-          <FormGroup>
-          <Label for="description" ><strong>Course Description</strong></Label>
-          <Input type="textarea" name="description" id="description" placeholder="Enter description here" required
-          onChange={(e)=>{
-            setCourses({...courses,course_desc:e.target.value})
-          }}/>
-          </FormGroup>
+          
           <FormGroup>
           <Label for="title" ><strong>Institute Name</strong></Label>
           <Input type="text" name="title" id="title" placeholder="Enter institute name here" required
           onChange={(e)=>{
             setCourses({...courses,institute_name:e.target.value})
-          }}/>
-          </FormGroup>
-          <FormGroup>
-          <Label for="title" ><strong>Course Duration</strong></Label>
-          <Input type="text" name="title" id="title" placeholder="Enter course duration here" required
-          onChange={(e)=>{
-            setCourses({...courses,courseDuration:e.target.value})
           }}/>
           </FormGroup>
           <FormGroup>

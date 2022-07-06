@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./User Pages/User Components/Navbar";
 import {Redirect} from 'react-router-dom'
 import { name, mobno, emailadd } from './Login';
+import { Link } from "react-router-dom";
 
 const User = ({authorized}) => {
 
@@ -20,6 +21,7 @@ const User = ({authorized}) => {
                     <h2 className="headi">Welcome, {name}</h2>
 					<h2 className="email">Email: {emailadd}</h2>
 					<h2 className="mobile">Mobile: {mobno}</h2>
+                    <Link className='btn btn-success paybutton'>Pay Now</Link>
             </div>
         </div>
         </div>

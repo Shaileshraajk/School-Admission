@@ -19,7 +19,7 @@ function Updatecourse(props) {
   }
 
   const getCourseInfo=()=>{
-    axios.get(`${base_url}/courses/getbyId?id=${props.match.params.id}`)
+    axios.get(`${base_url}/classes/getbyId?id=${props.match.params.id}`)
     .then(response => {
       console.log(response.data)
       setCourses(response.data)
@@ -37,7 +37,7 @@ function Updatecourse(props) {
   const UpdateDatatoServer=(data)=>{
     
 
-    axios.put(`${base_url}/courses/edit/${props.match.params.id}`,data).then(
+    axios.put(`${base_url}/classes/edit/${props.match.params.id}`,data).then(
       (response)=>{
           console.log(response);
           toast.success("Course updated successfully");
@@ -63,20 +63,12 @@ function Updatecourse(props) {
           </FormGroup> */}
           
           <FormGroup>
-          <Label for="title" ><strong>Course Title</strong></Label>
-          <Input type="text" name="title" id="title" placeholder="Enter course title here" required
-          value={courses.title}
+          <Label for="title" ><strong>Class Number</strong></Label>
+          <Input type="text" name="title" id="title" placeholder="Enter class number here" required
+          value={courses.classno}
           readOnly
           />
           </FormGroup>
-          <FormGroup>
-          <Label for="description" ><strong>Course Description</strong></Label>
-          <Input type="textarea" name="description" id="description" placeholder="Enter description here" required
-          value={courses.course_desc}
-          onChange={(e)=>{
-            setCourses({...courses,course_desc:e.target.value})
-          }}/>
-           </FormGroup>
           <FormGroup>
           <Label for="userId" ><strong>Institute Id</strong></Label>
           <Input type="text" name="userId" id="userId" placeholder="Enter institute id here" required
@@ -93,14 +85,7 @@ function Updatecourse(props) {
             setCourses({...courses,institute_name:e.target.value})
           }}/>
           </FormGroup>
-          <FormGroup>
-          <Label for="title" ><strong>Course Duration</strong></Label>
-          <Input type="text" name="title" id="title" placeholder="Enter course duration here" required
-          value={courses.courseDuration}
-          onChange={(e)=>{
-            setCourses({...courses,courseDuration:e.target.value})
-          }}/>
-          </FormGroup>
+          
           <FormGroup>
           <Label for="title" ><strong>Academic Year</strong></Label>
           <Input type="text" name="title" id="title" placeholder="Enter academic year" required
@@ -120,7 +105,7 @@ function Updatecourse(props) {
       <Container className='text-center'>
           <Button type="submit" color="warning">Update</Button>
           {" "}
-          <Link className='btn btn-success' to={'/admincourse/view-course'}>Cancel</Link>
+          <Link className='btn btn-success' to={'/admincourse/view-class'}>Cancel</Link>
         </Container>
      </Form>
      </Fragment>

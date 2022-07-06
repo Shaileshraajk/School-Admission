@@ -11,6 +11,8 @@ import { authorized} from './pages/Login';
 
 //Admin
 import Admin from './pages/Admin';
+import OTPLogin from './pages/OTPLogin';
+import AdminLogin from './pages/AdminLogin';
 import Course from './pages/Admin Pages/course';
 import Students from './pages/Admin Pages/students'
 import Institute from './pages/Admin Pages/institute';
@@ -20,6 +22,7 @@ import DenyAdmission from './pages/Admin Pages/DenyAdmission';
 import AddAcademy from './pages/Admin Pages/AddAcademy';
 import EditAcademy from './pages/Admin Pages/EditAcademy';
 import DeleteAcademy from './pages/Admin Pages/DeleteAcademy';
+import { adminauthorized } from './pages/OTPLogin';
 
 //User
 import User from './pages/User';
@@ -63,12 +66,20 @@ function App() {
             <Login />
           </Route>
 
+          <Route path="/adminlogin">
+            <AdminLogin />
+          </Route>
+
           <Route path="/invalidlogin">
             <InvalidLogin />
           </Route>
 
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+
+          <Route path="/otplogin">
+            <OTPLogin />
           </Route>
 
           <Route path="/enroll/:id" component={CourseEnroll} />
@@ -78,7 +89,7 @@ function App() {
           <Route path="/info/:id" component={InstituteInfo} />
 
           <Route path="/unenroll/:id" component={CourseUnenroll} />
-          <Route path="/admin" component={()=> <Admin authorized={authorized}/>}/>
+          <Route path="/admin" component={()=> <Admin adminauthorized={adminauthorized}/>}/>
 
           <Route path='/adminprofile' component={AdminProfile}/>
 		      <Route path='/admininstitute' component={Institute} />

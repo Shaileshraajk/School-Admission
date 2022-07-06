@@ -10,7 +10,7 @@ function DeleteCourse(props){
 
 
     const getCourseInfo=()=>{
-        axios.get(`${base_url}/courses/getbyId?id=${props.match.params.id}`)
+        axios.get(`${base_url}/classes/getbyId?id=${props.match.params.id}`)
         .then(response => {
           console.log(response.data)
           setCourses(response.data)
@@ -26,7 +26,7 @@ function DeleteCourse(props){
       },{})
 
       const DeleteCourseFromServer=(id) => {
-          axios.delete(`${base_url}/courses/delete/${id}`)
+          axios.delete(`${base_url}/classes/delete/${id}`)
           .then(response => {
               console.log(response.data)
               toast.success("Course deleted")
@@ -40,27 +40,27 @@ function DeleteCourse(props){
         <Fragment>
             <Container className='text-center'>
             <br></br>
-            <h3 className='text-danger'>Do you wish to delete this course?</h3>
+            <h3 className='text-danger'>Do you wish to delete this class?</h3>
             <br></br>
             <table className = "table table-striped table-light table-bordered table-hover">
                 <thead className="text-center">
                     <tr>
-                        <th>Course Title</th>
+                        <th>Class Number</th>
                         <th>Institute Name</th>
                         <th>Academic Year</th>
                         <th>Eligibility Marks</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key = {courses.courseid}>
-                        <td className="align-middle text-center"> {courses.title} </td>
+                    <tr key = {courses.classid}>
+                        <td className="align-middle text-center"> {courses.classno} </td>
                         <td className="align-middle text-center"> {courses.institute_name} </td>
                         <td className="align-middle text-center"> {courses.academicYear} </td>
                         <td className="align-middle text-center"> {courses.elgibleMarks} </td>
                     </tr>
                 </tbody>
             </table>
-            <button type="submit" className="btn btn-danger" onClick={()=>DeleteCourseFromServer(courses.courseid)}>
+            <button type="submit" className="btn btn-danger" onClick={()=>DeleteCourseFromServer(courses.classid)}>
                 Delete
             </button>
             {"  "}
